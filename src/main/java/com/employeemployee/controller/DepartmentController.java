@@ -44,4 +44,10 @@ public class DepartmentController {
         departmentService.deleteById(id);
         return "redirect:/";
     }
+    @PostMapping("updatedep/{id}")
+    public  String update(@PathVariable long id , DepartmentDTO dto)
+    {
+        departmentService.updateDep(id,dto);
+        return "redirect:/";
+    }
 }

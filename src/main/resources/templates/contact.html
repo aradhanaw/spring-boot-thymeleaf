@@ -8,22 +8,16 @@
 <body>
 <div clas="container my-2" align="center">
     <h3>Contact list</h3>
-    <a th:href="@{contact/add}" class="btn btn-primary btn-sm mb-3">Add Contact</a>
-    <table style="width: 80%" border="1" class="table table-striped table-responsive-md">
-        <thead>
-        <tr>
-            <th>Phone Number</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="contact:${contactList}">
-            <td th:text="${contact.phone}"></td>
-            <td th:text="${contact.dto.name}"></td>
-            <td><a th:href="@{/updateContact/{id}(id=${contact.id})}" class="btn btn-primary">Update</a></td>
-            <td><a th:href="@{/deleteContact/{id}(id=${contact.id})}" class="btn btn-danger">Delete</a></td>
-        </tr>
-        </tbody>
-    </table>
+    <form action="#" th:action="@{/updateContact/{id} (id=${contact.id})}" th:object="${contact}" method="POST">
+
+        <input type="tel" th:field="*{phone}" placeholder="enter phone number" class="form-control mb-4 col-4">
+        <select th:field="*{employeeId}" class="form-control mb-4 col-4">
+            <option th:each="employee: ${employees}"
+                    th:value="${employee.id}"
+                    th:text="${employee.name}"></option>
+        </select>
+        <button type="submit" class="btn btn-info col-2">Update Contact</button>
+    </form>
 
 </div>
 </body>

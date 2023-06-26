@@ -72,8 +72,8 @@
         <tr th:each="contact:${contactList}">
             <td th:text="${contact.dto.name}"></td>
             <td th:text="${contact.phone}"></td>
-            <td><a th:href="@{/updateContact/{id}(id=${contact.id})}" class="btn btn-primary">Update</a></td>
-            <td><a th:href="@{/deleteContact/{id}(id=${contact.id})}" class="btn btn-danger">Delete</a></td>
+            <td><a th:href="@{/contact/updateForm/{id}(id=${contact.id})}" class="btn btn-primary">Update</a></td>
+            <td><a th:href="@{/contact/deleteContact/{id}(id=${contact.id})}" class="btn btn-danger">Delete</a></td>
         </tr>
         </tbody>
     </table>

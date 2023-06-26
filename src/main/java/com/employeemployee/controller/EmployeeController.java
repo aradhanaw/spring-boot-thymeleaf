@@ -55,4 +55,10 @@ public class EmployeeController {
         employeeService.deleteById(id);
         return "redirect:/";
    }
+
+    @PostMapping("updateEmployee/{id}")
+    public String UpdateEmp(@PathVariable long id,EmployeeDTO employeeDTO){
+        employeeService.updateEmp(id,employeeDTO);
+        return "redirect:/";
+    }
 }

@@ -36,16 +36,16 @@ public class ContactController {
         contactService.saveCon(contactDTO);
         return "redirect:/";
     }
-    @GetMapping("update/{id}")
+    @GetMapping("updateForm/{id}")
     public String updateForm(@PathVariable(value = "id")long id , Model model){
         ContactDTO contactDTO=contactService.getById(id);
         model.addAttribute("contact",contactDTO);
-        return "updateCon";
+        return "contact";
     }
     @PostMapping("updateContact/{id}")
     public String updateCon(@PathVariable long id , ContactDTO dto){
         contactService.updateCon(id,dto);
-        return "redirect:/index";
+        return "redirect:/";
     }
     @GetMapping("deleteContact/{id}") //returnig homepage so getmapping in deletemapping
     public String deleteById(@PathVariable(value = "id") long id ){
